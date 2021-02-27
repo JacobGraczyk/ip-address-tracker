@@ -1,0 +1,145 @@
+$veryDarkGray: hsl(0, 0%, 17%);
+$darkGray: hsl(0, 0%, 59%);
+$rubik: "Rubik", sans-serif;
+$desktopWidth: 1440px;
+$mobileWidth: 375px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $rubik;
+  font-size: 18px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .header-top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 225px;
+    width: 100%;
+    box-shadow: 0 0 20px 0 grey;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    h1 {
+      color: white;
+      font-size: 18pt;
+      font-weight: 400;
+      margin: 20px;
+    }
+    input {
+      width: 450px;
+      height: 50px;
+      border-radius: 13px 0 0 13px;
+      border: none;
+      padding: 20px;
+      font-size: 11pt;
+      color: $veryDarkGray;
+      outline: none;
+      &:active {
+        box-shadow: inset 0 0 3px $veryDarkGray;
+      }
+    }
+    button {
+      width: 50px;
+      height: 50px;
+      background: $veryDarkGray;
+      border-radius: 0 13px 13px 0;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background: black;
+      }
+      &:active {
+        background: $veryDarkGray;
+      }
+    }
+  }
+  .header-bottom {
+    width: 850px;
+    background: white;
+    height: 135px;
+    position: absolute;
+    top: 155px;
+    border-radius: 13px;
+    box-shadow: 0 10px 10px -10px grey;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+    .col {
+      width: 25%;
+      padding: 0 25px;
+      p {
+        color: $darkGray;
+        text-transform: uppercase;
+        font-size: 7pt;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin: 0 0 10px 0;
+      }
+      h2 {
+        color: $veryDarkGray;
+        font-size: 15pt;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: calc(100vh - 112px);
+  position: absolute;
+  top: 112px;
+  z-index: -10;
+}
+
+//mobile styling
+
+@media only screen and (max-width: $mobileWidth) {
+  header {
+    .header-top {
+      height: 300px;
+      h1 {
+        margin: 30px;
+        font-size: 20pt;
+      }
+      input {
+        width: 280px;
+        height: 55px;
+        font-size: 14pt;
+      }
+      button {
+        height: 55px;
+      }
+    }
+    .header-bottom {
+      width: 330px;
+      height: 280px;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      white-space: nowrap;
+      .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          text-overflow: none;
+        }
+      }
+    }
+  }
+  .leaflet-container {
+    width: 100%;
+    height: calc(100vh - 25px);
+    position: absolute;
+    top: 112px;
+    z-index: -10;
+  }
+}
